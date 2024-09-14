@@ -5,11 +5,19 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
+checkInstall() {
+  command -v "$1" >/dev/null 2>&1
+}
 min=$1
 
 sec=$((min * 60))
 while [ $sec -gt 0 ]; do
-  echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r"
+  clear
+  if checkInstall cowsay; then
+    echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r" | cowsay
+  else
+    echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r"
+  fi
   sleep 1
   ((sec--))
 done
