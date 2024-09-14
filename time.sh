@@ -14,7 +14,7 @@ sec=$((min * 60))
 while [ $sec -gt 0 ]; do
   clear
   if checkInstall cowsay; then
-    echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r" | cowsay
+    echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r" | cowsay | lolcat
   else
     echo -ne "Time Left: $(date -u --date @$sec +%H:%M:%S)\r"
   fi
