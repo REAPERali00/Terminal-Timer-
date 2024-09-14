@@ -15,4 +15,4 @@ while [ $sec -gt 0 ]; do
 done
 
 echo -n "Time is up!!"
-mpv ./timer.mp3 >/dev/null 2>&1
+mpv ~/Documents/timer/timer.mp3 >/dev/null 2>&1
